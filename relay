@@ -1,3 +1,4 @@
+//relay.c//
 #include "Relay.h"
 #include "gpio.h"
 
@@ -8,3 +9,13 @@ void relay_on() {
 void relay_off() {
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 }
+
+
+//relay.h//
+#ifndef RELAY_H
+#define RELAY_H
+
+void relay_on(void);
+void relay_off(void);
+
+#endif
