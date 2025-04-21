@@ -1,3 +1,4 @@
+// level.c//
 #include "Level.h"
 #include "adc.h"
 
@@ -10,3 +11,12 @@ float baca_level_air() {
     }
     return -1;
 }
+
+
+//level.h//
+#ifndef LEVEL_H
+#define LEVEL_H
+
+float baca_level_air(void);
+
+#endif
