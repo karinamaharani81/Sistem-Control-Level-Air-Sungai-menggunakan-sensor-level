@@ -35,16 +35,19 @@ File terpisah seperti Level.c, Jarak.c, dan Relay.c membuat kode lebih mudah dip
 
 ## Instalasi 
 1. Clone Repository
-bash
+```bash
 git clone https://github.com/NamaKamu/Sistem-Monitoring-Level-Air-STM32
-2. Buka Proyek di STM32CubeIDE
-3. Pastikan semua konfigurasi peripheral sesuai (ADC, I2C, UART, Timer).
-4. Kompilasi & Flash ke Board
-bash
+```
+3. Buka Proyek di STM32CubeIDE
+4. Pastikan semua konfigurasi peripheral sesuai (ADC, I2C, UART, Timer).
+5. Kompilasi & Flash ke Board
+```bash
 Build > Run > Debug > Flash
-5. Monitoring Output via UART Output status relay atau level air dapat ditampilkan melalui komunikasi serial.
+```
+6. Monitoring Output via UART Output status relay atau level air dapat ditampilkan melalui komunikasi serial.
 
 ## Struktur
+```
 STM32-WaterLevel-Control/
 ├── Core/
 │   ├── Src/
@@ -59,3 +62,4 @@ STM32-WaterLevel-Control/
 ├── Drivers/                    # Driver HAL bawaan STM32
 ├── .project, .cproject, .ioc   # File konfigurasi CubeMX/IDE
 └── README.md                   # Dokumentasi proyek
+```
