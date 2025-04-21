@@ -1,3 +1,4 @@
+//jarak.c//
 #include "Jarak.h"
 #include "tim.h"
 
@@ -37,3 +38,13 @@ float baca_jarak_gate() {
     __HAL_TIM_SET_CAPTUREPOLARITY(&htim2, TIM_CHANNEL_2, TIM_INPUTCHANNELPOLARITY_RISING);
     return distance_cm;
 }
+
+
+//jarak.h//
+
+#ifndef JARAK_H
+#define JARAK_H
+
+float baca_jarak_gate(void);
+
+#endif
