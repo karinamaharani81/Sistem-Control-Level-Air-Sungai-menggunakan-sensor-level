@@ -1,0 +1,39 @@
+#include "Jarak.h"
+#include "tim.h"
+
+volatile uint32_t echo_start = 0, echo_end = 0;
+volatile uint8_t capture_done = 0;
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+    if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2) {
+        if (capture_done == 0) {
+            echo_start = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
+            __HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2, TIM_INPUTCHANNELPOLARITY_FALLING);
+            capture_done = 1;
+        } else if (capture_done == 1) {
+            echo_end = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
+            capture_done = 2;
+        }
+    }
+}
+
+float baca_jarak_gate() {
+    capture_done = 0;
+
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+
+    __HAL_TIM_ENABLE_IT(&htim2, TIM_IT_CC2);
+
+    uint32_t timeout = HAL_GetTick();
+    while (capture_done < 2) {
+        if ((HAL_GetTick() - timeout) > 100) return -1;
+    }
+
+    int32_t diff = echo_end - echo_start;
+    float distance_cm = (diff * 0.0343) / 2;
+
+    __HAL_TIM_SET_CAPTUREPOLARITY(&htim2, TIM_CHANNEL_2, TIM_INPUTCHANNELPOLARITY_RISING);
+    return distance_cm;
+}
