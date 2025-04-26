@@ -46,6 +46,17 @@ Build > Run > Debug > Flash
 ```
 6. Monitoring Output via UART Output status relay atau level air dapat ditampilkan melalui komunikasi serial.
 
+### Cara Kerja Program
+1. Sensor level air membaca kondisi ketinggian air.
+   - Jika air belum mencapai batas level → output sensor LOW.
+   - Jika air melewati batas level → output sensor HIGH.
+2. Mikrokontroler STM32 terus membaca data dari sensor secara berkala.
+3. Berdasarkan pembacaan sensor:
+   - Jika level air tinggi (HIGH) maka mikrokontroler mengaktifkan relay untuk menyalakan pompa air (mengalirkan/menguras air). Buzzer juga diaktifkan sebagai alarm peringatan.
+   - Jika level air normal (LOW) maka pompa dan buzzer dinonaktifkan otomatis.
+4. Program ini menggunakan prinsip looping untuk terus menerus memonitor kondisi air secara real-time.
+5. Semua pengaturan berjalan otomatis tanpa intervensi manual.
+
 ## Struktur
 ```
 STM32-WaterLevel-Control/
