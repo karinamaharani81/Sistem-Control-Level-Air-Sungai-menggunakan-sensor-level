@@ -21,7 +21,7 @@ File terpisah seperti Level.c, Jarak.c, dan Relay.c membuat kode lebih mudah dip
 
 ## Kebutuhan
 ### Hardware
-1. STM32F4xx Development Board
+1. STM32 NUCLEO Development Board
 2. Sensor Level Air (Analog Input ke ADC)
 3. Sensor Jarak Ultrasonik (dengan output analog/digital melalui I2C/UART)
 4. Relay Module
@@ -33,14 +33,17 @@ File terpisah seperti Level.c, Jarak.c, dan Relay.c membuat kode lebih mudah dip
 3. HAL Library
 4. Driver Level, Jarak, dan Relay
 
-## Instalasi 
-1. Clone Repository
+## Instalasi Program ke STM32 NUCLEO
+1. Install STM32CubeIDE
+2.Pilih Board STM32
+3. Clone Repository
 ```bash
 git clone https://github.com/NamaKamu/Sistem-Monitoring-Level-Air-STM32
 ```
-3. Buka Proyek di STM32CubeIDE
-4. Pastikan semua konfigurasi peripheral sesuai (ADC, I2C, UART, Timer).
-5. Kompilasi & Flash ke Board
+4. Buka Proyek di STM32CubeIDE
+5. Pastikan semua konfigurasi peripheral sesuai (ADC, I2C, UART, Timer).
+6.  Sambungkan board STM32 ke pc/laptop menggunakan kabel USB 
+7. Upload program ke STM32 dan amati hasilnya
 ```bash
 Build > Run > Debug > Flash
 ```
