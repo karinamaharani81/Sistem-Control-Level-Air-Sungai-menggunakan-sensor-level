@@ -47,7 +47,7 @@ git clone https://github.com/NamaKamu/Sistem-Monitoring-Level-Air-STM32
 ```bash
 Build > Run > Debug > Flash
 ```
-6. Monitoring Output via UART Output status relay atau level air dapat ditampilkan melalui komunikasi serial.
+8. Monitoring Output via UART Output status relay atau level air dapat ditampilkan melalui komunikasi serial.
 
 ### Cara Kerja Program
 1. Sensor level air membaca kondisi ketinggian air.
