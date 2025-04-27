@@ -29,9 +29,8 @@ File terpisah seperti Level.c, Jarak.c, dan Relay.c membuat kode lebih mudah dip
 
 ### Software
 1. STM32CubeMX
-2. STM32CubeIDE
-3. HAL Library
-4. Driver Level, Jarak, dan Relay
+2. HAL Library
+3. Driver Level, Jarak, dan Relay
 
 ## Instalasi Program ke STM32 NUCLEO
 1. Install STM32CubeIDE
